@@ -1,0 +1,9 @@
+*.pyc
+*.project
+*.pydevproject
+*.settings
+*.db
+*.pydevproject
+backly/my_settings.py
+*.DS_Store
+tmp.txt
