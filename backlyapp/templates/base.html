@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Backly</title>
     <meta name="description" content="{% trans 'Give the businesses you love a pat on the back.' %}">
     <meta name="author" content="Backly">
     <meta name="keywords" content="backly, support, business, startup, back, pat, love">
@@ -33,13 +33,13 @@
           <a class="brand" href="#">Backly</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="#">{% trans 'Home' %}</a></li>
             </ul>
           </div>
         </div>
       </div>
     </header>
-    <section class="main">
+    <section class="main container">
     {% block main %}{% endblock %}
     </section>
     <footer>
