@@ -4,4 +4,74 @@
 {% block main %}
 <h1>{% trans 'HELLO WORLD' %}</h1>
 <p>{% trans 'Bacon ipsum dolor sit amet strip steak pork belly venison beef ribs, sirloin prosciutto capicola pig fatback chuck chicken shank bresaola ham hock. Flank turducken tail jowl hamburger brisket drumstick meatloaf fatback short loin tongue short ribs kielbasa. Short loin tenderloin corned beef pancetta capicola kielbasa sirloin chicken pork loin short ribs t-bone ground round ball tip bacon jowl. Venison kielbasa fatback ham pork loin, ball tip chicken turkey ribeye corned beef jerky bresaola tri-tip. Ham hock tongue pork belly bresaola flank brisket tenderloin. Ham hock leberkas bresaola, andouille ham beef ribs pork sausage chuck meatloaf.' %}</p>
+ 
+<div class="modal hide fade" id="myModal">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <iframe id="backly-overly" src="http://localbackly.com:8080/api/widget/7ab7b706-0c9a-4d09-8b16-25dbba3a0b1c" style="border: 0px none transparent;width: 100%;height: 100%;"></iframe>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
+<div href="#myModal" role="button" data-toggle="modal" style="border: none;position: fixed;bottom: 0; left: 0;width: 100px;height: 100px; background-color:red;"></div>
+<script type="text/javascript">
+(function() {
+
+// Localize jQuery variable
+var jQuery;
+
+/******** Load jQuery if not present *********/
+if (window.jQuery === undefined || window.jQuery.fn.jquery !== '1.4.2') {
+    var script_tag = document.createElement('script');
+    script_tag.setAttribute("type","text/javascript");
+    script_tag.setAttribute("src",
+        "http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js");
+    if (script_tag.readyState) {
+      script_tag.onreadystatechange = function () { // For old versions of IE
+          if (this.readyState == 'complete' || this.readyState == 'loaded') {
+              scriptLoadHandler();
+          }
+      };
+    } else { // Other browsers
+      script_tag.onload = scriptLoadHandler;
+    }
+    // Try to find the head, otherwise default to the documentElement
+    (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+} else {
+    // The jQuery version on the window is the one we want to use
+    jQuery = window.jQuery;
+    main();
+}
+
+/******** Called once jQuery has loaded ******/
+function scriptLoadHandler() {
+    // Restore $ and window.jQuery to their previous values and store the
+    // new jQuery in our local jQuery variable
+    jQuery = window.jQuery.noConflict(true);
+    // Call our main function
+    main(); 
+}
+
+/******** Our main function ********/
+function main() { 
+    jQuery(document).ready(function($) {
+        /*$(document).on('click','#backly-button',function(e) {
+          $(this).css('background-color','blue');
+          $('#backly-overly').show();
+        });
+
+        $(document).on('click','#backly-overlay',function(e) {
+          $('#backly-button').css('background-color','blue');
+          $(this).hide();
+        });*/
+    });
+}
+
+})(); // We call our anonymous function immediately
+</script>
 {% endblock %}
